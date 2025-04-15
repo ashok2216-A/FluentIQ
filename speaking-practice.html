@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentIQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-container">
+                    <i class="fas fa-brain logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>FluentIQ</h1>
+                    <p class="tagline">Smart Language Learning</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <span>John Smith</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <button class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-layout">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <h2>Learning Modules</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-module="diagnostic-test">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Diagnostic Test</span>
+                    </button>
+                    <button class="nav-item" data-module="speaking-practice">
+                        <i class="fas fa-microphone"></i>
+                        <span>Speaking Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="writing-assistant">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Writing Assistant</span>
+                    </button>
+                    <button class="nav-item" data-module="listening-practice">
+                        <i class="fas fa-headphones"></i>
+                        <span>Listening Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="reading-comprehension">
+                        <i class="fas fa-book-open"></i>
+                        <span>Reading Comprehension</span>
+                    </button>
+                    <button class="nav-item" data-module="adaptive-quizzes">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Adaptive Quizzes</span>
+                    </button>
+                    <button class="nav-item" data-module="progress-dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Detailed Analytics</span>
+                    </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="help-btn">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </button>
+                </div>
+            </aside>
+            
+            <main class="app-content" id="content-area">
+                <div class="module-container">
+                    <div class="module-header">
+                        <h2>Speaking Practice</h2>
+                        <p>Practice your speaking skills with AI-powered feedback and analysis</p>
+                    </div>
+                    
+                    <div class="difficulty-selector">
+                        <button class="difficulty-btn active" data-level="beginner">Beginner</button>
+                        <button class="difficulty-btn" data-level="intermediate">Intermediate</button>
+                        <button class="difficulty-btn" data-level="advanced">Advanced</button>
+                    </div>
+
+                    <div class="speaking-exercise">
+                        <div class="exercise-prompt">
+                            <h3>Speaking Task</h3>
+                            <p class="prompt-text">Describe your favorite place to visit. You should say:
+                                - Where it is
+                                - What you can do there
+                                - Why you like it
+                                - How often you visit this place
+                            </p>
+                            <div class="timer">
+                                <i class="fas fa-clock"></i>
+                                <span id="speaking-timer">02:00</span>
+                            </div>
+                        </div>
+
+                        <div class="recording-controls">
+                            <button id="start-recording" class="btn-primary">
+                                <i class="fas fa-microphone"></i>
+                                Start Recording
+                            </button>
+                            <button id="stop-recording" class="btn-primary" disabled>
+                                <i class="fas fa-stop"></i>
+                                Stop Recording
+                            </button>
+                            <button id="play-recording" class="btn-primary" disabled>
+                                <i class="fas fa-play"></i>
+                                Play Recording
+                            </button>
+                        </div>
+
+                        <div class="recording-visualizer">
+                            <canvas id="audio-visualizer"></canvas>
+                        </div>
+
+                        <div class="score-cards">
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-volume-up"></i>
+                                    <h4>Pronunciation</h4>
+                                </div>
+                                <div class="score-value">7.5</div>
+                                <div class="score-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+0.5 since last practice</span>
+                                </div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-comments"></i>
+                                    <h4>Fluency</h4>
+                                </div>
+                                <div class="score-value">8.0</div>
+                                <div class="score-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+1.0 since last practice</span>
+                                </div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-pen-fancy"></i>
+                                    <h4>Grammar</h4>
+                                </div>
+                                <div class="score-value">7.0</div>
+                                <div class="score-trend neutral">
+                                    <i class="fas fa-minus"></i>
+                                    <span>No change</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 FluentIQ | Powered by Advanced AI Technology</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/js/main.js" type="module"></script>
+    <script src="src/js/landing.js"></script>
+    <script src="src/js/speaking-practice.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the speaking practice module
+            if (typeof SpeakingPractice === 'function') {
+                new SpeakingPractice();
+            }
+        });
+    </script>
+</body>
+</html>

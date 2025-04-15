@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentIQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-container">
+                    <i class="fas fa-brain logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>FluentIQ</h1>
+                    <p class="tagline">Smart Language Learning</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <span>John Smith</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <button class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-layout">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <h2>Learning Modules</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-module="diagnostic-test">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Diagnostic Test</span>
+                    </button>
+                    <button class="nav-item" data-module="speaking-practice">
+                        <i class="fas fa-microphone"></i>
+                        <span>Speaking Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="writing-assistant">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Writing Assistant</span>
+                    </button>
+                    <button class="nav-item" data-module="listening-practice">
+                        <i class="fas fa-headphones"></i>
+                        <span>Listening Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="reading-comprehension">
+                        <i class="fas fa-book-open"></i>
+                        <span>Reading Comprehension</span>
+                    </button>
+                    <button class="nav-item" data-module="adaptive-quizzes">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Adaptive Quizzes</span>
+                    </button>
+                    <button class="nav-item" data-module="progress-dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Detailed Analytics</span>
+                    </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="help-btn">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </button>
+                </div>
+            </aside>
+            
+            <main class="app-content" id="content-area">
+                <div class="module-container">
+                    <div class="module-header">
+                        <h2>Adaptive Quizzes</h2>
+                        <p>Test your knowledge with AI-powered quizzes that adapt to your skill level</p>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="quiz-header">
+                            <div class="quiz-info">
+                                <h3>Grammar & Vocabulary Quiz</h3>
+                                <div class="quiz-stats">
+                                    <span class="current-level">
+                                        <i class="fas fa-chart-line"></i>
+                                        Current Level: <span id="current-level">Beginner</span>
+                                    </span>
+                                    <span class="question-count">
+                                        <i class="fas fa-question-circle"></i>
+                                        Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-content">
+                            <div class="question-container">
+                                <div class="question-header">
+                                    <span class="question-number">Question 1</span>
+                                    <span class="question-timer">
+                                        <i class="fas fa-clock"></i>
+                                        <span id="timer">30</span>s
+                                    </span>
+                                </div>
+                                <div class="question-text">
+                                    <p>Choose the correct word to complete the sentence:</p>
+                                    <p class="sentence">"She _____ to the store yesterday."</p>
+                                </div>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="answer" value="go">
+                                        <span class="option-text">go</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="answer" value="goes">
+                                        <span class="option-text">goes</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="answer" value="went">
+                                        <span class="option-text">went</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="answer" value="gone">
+                                        <span class="option-text">gone</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-navigation">
+                                <button class="nav-btn skip-btn" id="skip-question">
+                                    <i class="fas fa-forward"></i>
+                                    Skip Question
+                                </button>
+                                <button class="nav-btn submit-btn" id="submit-answer">
+                                    <i class="fas fa-check"></i>
+                                    Submit Answer
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-feedback" style="display: none;">
+                            <div class="feedback-content">
+                                <div class="feedback-header">
+                                    <h4>Answer Feedback</h4>
+                                    <button class="close-feedback">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="feedback-body">
+                                    <div class="feedback-result">
+                                        <i class="fas fa-check-circle"></i>
+                                        <p>Correct! The answer is "went" because the sentence is in the past tense.</p>
+                                    </div>
+                                    <div class="difficulty-adjustment">
+                                        <p>Your performance suggests you're ready for more challenging questions!</p>
+                                        <div class="level-up">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>Level Up: Intermediate</span>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-actions">
+                                        <button class="btn-primary next-question">
+                                            <i class="fas fa-forward"></i>
+                                            Next Question
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 FluentIQ | Powered by Advanced AI Technology</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/js/main.js" type="module"></script>
+    <script src="src/js/landing.js"></script>
+    <script src="src/js/reading-comprehension.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the reading comprehension module
+            if (typeof initReadingComprehension === 'function') {
+                initReadingComprehension();
+            }
+        });
+    </script>
+</body>
+</html>

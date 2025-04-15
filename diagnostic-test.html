@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentIQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-container">
+                    <i class="fas fa-brain logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>FluentIQ</h1>
+                    <p class="tagline">Smart Language Learning</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <span>John Smith</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <button class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-layout">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <h2>Learning Modules</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-module="diagnostic-test">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Diagnostic Test</span>
+                    </button>
+                    <button class="nav-item" data-module="speaking-practice">
+                        <i class="fas fa-microphone"></i>
+                        <span>Speaking Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="writing-assistant">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Writing Assistant</span>
+                    </button>
+                    <button class="nav-item" data-module="listening-practice">
+                        <i class="fas fa-headphones"></i>
+                        <span>Listening Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="reading-comprehension">
+                        <i class="fas fa-book-open"></i>
+                        <span>Reading Comprehension</span>
+                    </button>
+                    <button class="nav-item" data-module="adaptive-quizzes">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Adaptive Quizzes</span>
+                    </button>
+                    <button class="nav-item" data-module="progress-dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Detailed Analytics</span>
+                    </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="help-btn">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </button>
+                </div>
+            </aside>
+            
+            <main class="app-content" id="content-area">
+                <div class="module-container">
+                    <div class="module-header">
+                        <h2>Diagnostic Test</h2>
+                        <p>Take this test to assess your current language level and get personalized recommendations</p>
+                    </div>
+
+                    <div class="test-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <span class="step active">1. Speaking</span>
+                            <span class="step">2. Writing</span>
+                            <span class="step">3. Listening</span>
+                            <span class="step">4. Reading</span>
+                        </div>
+                    </div>
+
+                    <div class="test-content-container">
+                        <div class="test-scroll-container">
+                            <div class="test-section active" id="speaking-section">
+                                <h3>Speaking Assessment</h3>
+                                <div class="test-prompt">
+                                    <p>Please record yourself speaking about the following topic for 2 minutes:</p>
+                                    <p class="topic">"Describe your daily routine and explain how it has changed in the past year."</p>
+                                </div>
+                                <div class="recording-controls">
+                                    <button class="btn-primary" id="start-speaking">
+                                        <i class="fas fa-microphone"></i>
+                                        Start Recording
+                                    </button>
+                                    <button class="btn-primary" id="stop-speaking" disabled>
+                                        <i class="fas fa-stop"></i>
+                                        Stop Recording
+                                    </button>
+                                </div>
+                                <div class="timer">
+                                    <i class="fas fa-clock"></i>
+                                    <span>02:00</span>
+                                </div>
+                            </div>
+
+                            <div class="test-section" id="writing-section">
+                                <h3>Writing Assessment</h3>
+                                <div class="test-prompt">
+                                    <p>Write an essay (250-300 words) on the following topic:</p>
+                                    <p class="topic">"The impact of technology on education"</p>
+                                    <div class="writing-instructions">
+                                        <p>Your essay should include:</p>
+                                        <ul>
+                                            <li>An introduction with a clear thesis statement</li>
+                                            <li>Two or three main body paragraphs with supporting arguments</li>
+                                            <li>A conclusion that summarizes your main points</li>
+                                            <li>Proper grammar, punctuation, and sentence structure</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="writing-area">
+                                    <textarea placeholder="Type your essay here..." minlength="250" maxlength="300"></textarea>
+                                    <div class="word-count">Word count: <span>0</span>/300</div>
+                                    <div class="writing-timer">
+                                        <i class="fas fa-clock"></i>
+                                        <span>40:00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="test-section" id="listening-section">
+                                <h3>Listening Assessment</h3>
+                                <div class="audio-player">
+                                    <button class="play-btn" title="Play audio">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="time-display">00:00 / 02:30</div>
+                                    <div class="audio-controls">
+                                        <button class="btn-outline" id="replay-audio">
+                                            <i class="fas fa-redo"></i>
+                                            Replay
+                                        </button>
+                                        <button class="btn-outline" id="pause-audio">
+                                            <i class="fas fa-pause"></i>
+                                            Pause
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="questions">
+                                    <div class="question">
+                                        <p>1. What is the main topic of the conversation?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="q1" value="a">
+                                                <span>A. Climate change</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q1" value="b">
+                                                <span>B. Urban development</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q1" value="c">
+                                                <span>C. Education reform</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <p>2. According to the speaker, what is the biggest challenge facing urban areas?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="q2" value="a">
+                                                <span>A. Traffic congestion</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q2" value="b">
+                                                <span>B. Air pollution</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q2" value="c">
+                                                <span>C. Housing shortages</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <p>3. What solution does the speaker propose?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="q3" value="a">
+                                                <span>A. Building more roads</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q3" value="b">
+                                                <span>B. Improving public transportation</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="q3" value="c">
+                                                <span>C. Creating more green spaces</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="test-section" id="reading-section">
+                                <h3>Reading Assessment</h3>
+                                <div class="reading-passage">
+                                    <p>Read the following passage and answer the questions that follow:</p>
+                                    <div class="passage-text">
+                                        <p>The rapid advancement of technology has revolutionized the way we live, work, and communicate. In the field of education, digital tools and online platforms have transformed traditional learning methods, making education more accessible and interactive than ever before.</p>
+                                        
+                                        <p>One significant impact of technology in education is the ability to personalize learning experiences. Adaptive learning software can analyze a student's performance and adjust the content accordingly, ensuring that each learner receives instruction tailored to their needs and pace. This individualized approach has been shown to improve student engagement and academic outcomes.</p>
+                                        
+                                        <p>Furthermore, technology has broken down geographical barriers in education. Online courses and virtual classrooms enable students from around the world to access quality education without the constraints of physical location. This has particularly benefited individuals in remote areas or those with limited access to traditional educational institutions.</p>
+                                        
+                                        <p>However, the integration of technology in education is not without challenges. Issues such as the digital divide, where some students lack access to necessary devices and internet connectivity, and concerns about screen time and its impact on social development, must be carefully considered and addressed.</p>
+                                    </div>
+                                </div>
+                                <div class="questions">
+                                    <div class="question">
+                                        <p>1. What is the main idea of the passage?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="r1" value="a">
+                                                <span>A. The importance of renewable energy</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r1" value="b">
+                                                <span>B. The impact of technology on education</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r1" value="c">
+                                                <span>C. The future of transportation</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <p>2. According to the passage, what is one benefit of adaptive learning software?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="r2" value="a">
+                                                <span>A. It reduces the need for teachers</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r2" value="b">
+                                                <span>B. It personalizes learning experiences</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r2" value="c">
+                                                <span>C. It eliminates the need for textbooks</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <p>3. What challenge is mentioned regarding technology in education?</p>
+                                        <div class="options">
+                                            <label>
+                                                <input type="radio" name="r3" value="a">
+                                                <span>A. High cost of implementation</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r3" value="b">
+                                                <span>B. The digital divide</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="r3" value="c">
+                                                <span>C. Lack of qualified teachers</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicator">
+                            <div class="scroll-track">
+                                <div class="scroll-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-navigation">
+                        <button class="btn-outline" id="prev-section" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button class="btn-primary" id="next-section">
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 FluentIQ | Powered by Advanced AI Technology</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/js/main.js" type="module"></script>
+    <script src="src/js/landing.js"></script>
+    <script src="src/js/reading-comprehension.js" type="module"></script>
+    <script src="src/js/diagnostic-test.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the reading comprehension module
+            if (typeof initReadingComprehension === 'function') {
+                initReadingComprehension();
+            }
+            
+            // Initialize the diagnostic test module
+            if (typeof initDiagnosticTest === 'function') {
+                initDiagnosticTest();
+            }
+        });
+    </script>
+</body>
+</html>

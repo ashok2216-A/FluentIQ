@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentIQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-container">
+                    <i class="fas fa-brain logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>FluentIQ</h1>
+                    <p class="tagline">Smart Language Learning</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <span>John Smith</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <button class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-layout">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <h2>Learning Modules</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-module="diagnostic-test">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Diagnostic Test</span>
+                    </button>
+                    <button class="nav-item" data-module="speaking-practice">
+                        <i class="fas fa-microphone"></i>
+                        <span>Speaking Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="writing-assistant">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Writing Assistant</span>
+                    </button>
+                    <button class="nav-item" data-module="listening-practice">
+                        <i class="fas fa-headphones"></i>
+                        <span>Listening Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="reading-comprehension">
+                        <i class="fas fa-book-open"></i>
+                        <span>Reading Comprehension</span>
+                    </button>
+                    <button class="nav-item" data-module="adaptive-quizzes">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Adaptive Quizzes</span>
+                    </button>
+                    <button class="nav-item" data-module="progress-dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Detailed Analytics</span>
+                    </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="help-btn">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </button>
+                </div>
+            </aside>
+            
+            <main class="app-content" id="content-area">
+                <div class="module-container">
+                    <div class="module-header">
+                        <h2>Reading Comprehension</h2>
+                        <p>Improve your reading skills with engaging passages and comprehension questions</p>
+                    </div>
+
+                    <div class="reading-container">
+                        <div class="difficulty-selector">
+                            <button class="difficulty-btn active" data-level="beginner" title="Beginner Level">
+                                <i class="fas fa-seedling"></i>
+                                <span>Beginner</span>
+                            </button>
+                            <button class="difficulty-btn" data-level="intermediate" title="Intermediate Level">
+                                <i class="fas fa-tree"></i>
+                                <span>Intermediate</span>
+                            </button>
+                            <button class="difficulty-btn" data-level="advanced" title="Advanced Level">
+                                <i class="fas fa-mountain"></i>
+                                <span>Advanced</span>
+                            </button>
+                        </div>
+
+                        <div class="reading-exercise">
+                            <div class="exercise-header">
+                                <div class="exercise-title">
+                                    <h3>Environmental Conservation</h3>
+                                    <span class="exercise-number">Exercise 1</span>
+                                </div>
+                                <div class="exercise-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reading-passage">
+                                <div class="passage-text">
+                                    <p>Environmental conservation has become a critical issue in today's world. With increasing industrialization and urbanization, natural resources are being depleted at an alarming rate. Conservation efforts aim to protect and preserve these resources for future generations.</p>
+                                    
+                                    <p>One of the most significant challenges in environmental conservation is balancing economic development with ecological preservation. Many countries are now implementing sustainable practices to reduce their environmental impact while maintaining economic growth.</p>
+                                    
+                                    <p>Individuals can also contribute to conservation efforts through simple daily actions. Reducing waste, recycling materials, and conserving water and energy are effective ways to make a difference. Education and awareness play crucial roles in promoting environmental responsibility.</p>
+                                </div>
+                            </div>
+
+                            <div class="questions-container">
+                                <div class="question">
+                                    <div class="question-header">
+                                        <span class="question-number">Question 1</span>
+                                        <span class="question-timer">Time: 02:00</span>
+                                    </div>
+                                    <p class="question-text">What is the main focus of environmental conservation?</p>
+                                    <div class="options">
+                                        <label class="option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span class="option-text">A. Economic development</span>
+                                        </label>
+                                        <label class="option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span class="option-text">B. Protecting natural resources</span>
+                                        </label>
+                                        <label class="option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span class="option-text">C. Urban development</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question">
+                                    <div class="question-header">
+                                        <span class="question-number">Question 2</span>
+                                        <span class="question-timer">Time: 02:00</span>
+                                    </div>
+                                    <p class="question-text">How can individuals contribute to environmental conservation?</p>
+                                    <div class="options">
+                                        <label class="option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span class="option-text">A. By increasing industrial production</span>
+                                        </label>
+                                        <label class="option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span class="option-text">B. Through daily conservation actions</span>
+                                        </label>
+                                        <label class="option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span class="option-text">C. By focusing on economic growth</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="exercise-navigation">
+                                <button class="nav-btn check-btn" id="check-answer" title="Check Your Answers">
+                                    Check Answers
+                                </button>
+                            </div>
+
+                            <div class="feedback" style="display: none;">
+                                <div class="feedback-content">
+                                    <div class="feedback-header">
+                                        <h4>Results</h4>
+                                        <button class="close-feedback" title="Close Feedback">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="feedback-body">
+                                        <div class="score-display">
+                                            <div class="score-circle">
+                                                <span class="score-value">0</span>
+                                                <span class="score-total">/2</span>
+                                            </div>
+                                            <p class="score-text">Correct Answers</p>
+                                        </div>
+                                        <div class="feedback-details">
+                                            <p class="feedback-text"></p>
+                                            <div class="feedback-actions">
+                                                <button class="btn-primary try-again" title="Try Exercise Again">
+                                                    <i class="fas fa-redo"></i>
+                                                    Try Again
+                                                </button>
+                                                <button class="btn-outline next-exercise" title="Go to Next Exercise">
+                                                    <i class="fas fa-forward"></i>
+                                                    Next Exercise
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 FluentIQ | Powered by Advanced AI Technology</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/js/main.js" type="module"></script>
+    <script src="src/js/landing.js"></script>
+    <script src="src/js/reading-comprehension.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the reading comprehension module
+            if (typeof initReadingComprehension === 'function') {
+                initReadingComprehension();
+            }
+        });
+    </script>
+</body>
+</html>

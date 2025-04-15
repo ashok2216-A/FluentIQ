@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentIQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-container">
+                    <i class="fas fa-brain logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>FluentIQ</h1>
+                    <p class="tagline">Smart Language Learning</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <span>John Smith</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <button class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-layout">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <h2>Learning Modules</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" data-module="dashboard" title="Go to Dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-module="diagnostic-test" title="Take Diagnostic Test">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Diagnostic Test</span>
+                    </button>
+                    <button class="nav-item" data-module="speaking-practice" title="Practice Speaking">
+                        <i class="fas fa-microphone"></i>
+                        <span>Speaking Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="writing-assistant" title="Writing Assistant">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Writing Assistant</span>
+                    </button>
+                    <button class="nav-item" data-module="listening-practice" title="Practice Listening">
+                        <i class="fas fa-headphones"></i>
+                        <span>Listening Practice</span>
+                    </button>
+                    <button class="nav-item" data-module="reading-comprehension" title="Reading Comprehension">
+                        <i class="fas fa-book-open"></i>
+                        <span>Reading Comprehension</span>
+                    </button>
+                    <button class="nav-item" data-module="adaptive-quizzes" title="Adaptive Quizzes">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Adaptive Quizzes</span>
+                    </button>
+                    <button class="nav-item" data-module="progress-dashboard" title="View Progress Analytics">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Detailed Analytics</span>
+                    </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="help-btn" title="Get Help and Support">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help & Support</span>
+                    </button>
+                </div>
+            </aside>
+
+            <main class="app-content" id="content-area">
+                <div class="dashboard-container">
+                    <div class="welcome-banner">
+                        <div class="welcome-message">
+                            <h2>Welcome back, John!</h2>
+                            <p>You've completed 7 practice sessions this week. Keep up the good work!</p>
+                        </div>
+                        <div class="next-goal">
+                            <div class="goal-progress">
+                                <div class="progress-ring">
+                                    <svg width="120" height="120" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                                        <circle cx="60" cy="60" r="54" fill="none" stroke="#4361ee" stroke-width="12" stroke-dasharray="339.292" stroke-dashoffset="101.788" />
+                                    </svg>
+                                    <div class="progress-text">70%</div>
+                                </div>
+                            </div>
+                            <div class="goal-info">
+                                <h3>Next Goal: IELTS 7.5</h3>
+                                <p>You're on track to reach your target score by June 15, 2025</p>
+                                <button class="btn-outline" title="View Study Plan">View Study Plan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-overview">
+                        <h3>Your Current Language Scores</h3>
+                        <div class="score-cards">
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-microphone"></i>
+                                    <h4>Speaking</h4>
+                                </div>
+                                <div class="score-value">6.5</div>
+                                <div class="score-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+0.5 since last month</span>
+                                </div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-pen-nib"></i>
+                                    <h4>Writing</h4>
+                                </div>
+                                <div class="score-value">6.0</div>
+                                <div class="score-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+0.5 since last month</span>
+                                </div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-headphones"></i>
+                                    <h4>Listening</h4>
+                                </div>
+                                <div class="score-value">7.0</div>
+                                <div class="score-trend neutral">
+                                    <i class="fas fa-minus"></i>
+                                    <span>No change</span>
+                                </div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-header">
+                                    <i class="fas fa-book-open" style="color: rgb(75, 75, 255);"></i>
+                                    <h4>Reading</h4>
+                                </div>
+                                <div class="score-value">7.5</div>
+                                <div class="score-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+1.0 since last month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="progress-charts">
+                        <div class="chart-container">
+                            <h3>Progress Over Time</h3>
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Time Spent by Skill</h3>
+                            <canvas id="timeSpentChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="recent-activities">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon speaking">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Speaking Practice: Job Interview</h4>
+                                    <p>Completed with score: 7.0</p>
+                                    <span class="activity-time">Today, 10:30 AM</span>
+                                </div>
+                                <div class="activity-action">
+                                    <button class="btn-small" title="Review Activity">Review</button>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon writing">
+                                    <i class="fas fa-pen-nib"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Essay Submission: Technology Impact</h4>
+                                    <p>Completed with score: 6.5</p>
+                                    <span class="activity-time">Yesterday, 3:45 PM</span>
+                                </div>
+                                <div class="activity-action">
+                                    <button class="btn-small" title="Review Activity">Review</button>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon reading">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Reading: Environmental Conservation</h4>
+                                    <p>Completed with score: 8.0</p>
+                                    <span class="activity-time">Apr 12, 2025</span>
+                                </div>
+                                <div class="activity-action">
+                                    <button class="btn-small" title="Review Activity">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommended-modules">
+                        <h3>Recommended for You</h3>
+                        <div class="module-cards">
+                            <div class="module-card">
+                                <div class="module-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="module-details">
+                                    <h4>Speaking: Part 2 Long Turn</h4>
+                                    <p>Practice describing a memorable event</p>
+                                    <div class="difficulty">
+                                        <span class="difficulty-label">Difficulty:</span>
+                                        <span class="difficulty-level medium">Medium</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary" title="Start Exercise">Start</button>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-icon">
+                                    <i class="fas fa-pen-nib"></i>
+                                </div>
+                                <div class="module-details">
+                                    <h4>Writing: Task 2 Opinion Essay</h4>
+                                    <p>Learn to structure arguments effectively</p>
+                                    <div class="difficulty">
+                                        <span class="difficulty-label">Difficulty:</span>
+                                        <span class="difficulty-level hard">Hard</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary" title="Start Exercise">Start</button>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-icon">
+                                    <i class="fas fa-headphones"></i>
+                                </div>
+                                <div class="module-details">
+                                    <h4>Listening: Academic Lecture</h4>
+                                    <p>Practice note-taking and comprehension</p>
+                                    <div class="difficulty">
+                                        <span class="difficulty-label">Difficulty:</span>
+                                        <span class="difficulty-level medium">Medium</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary" title="Start Exercise">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" title="Toggle Mobile Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="mobile-navigation" id="mobile-navigation">
+            <button class="mobile-nav-btn" data-module="dashboard" title="Go to Dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="mobile-nav-btn" data-module="diagnostic-test" title="Take Diagnostic Test">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Diagnostic</span>
+            </button>
+            <button class="mobile-nav-btn" data-module="speaking-practice" title="Practice Speaking">
+                <i class="fas fa-microphone"></i>
+                <span>Speaking</span>
+            </button>
+            <button class="mobile-nav-btn" data-module="writing-assistant" title="Writing Assistant">
+                <i class="fas fa-pen-nib"></i>
+                <span>Writing</span>
+            </button>
+            <button class="mobile-nav-btn" data-module="listening-practice" title="Practice Listening">
+                <i class="fas fa-headphones"></i>
+                <span>Listening</span>
+            </button>
+        </div> -->
+    </div> 
+</div>
+
+<footer class="app-footer">
+    <p>&copy; 2025 FluentIQ | Powered by Advanced AI Technology</p>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+    </div>
+</footer>
+</div>
+
+
+    <script src="src/js/main.js" type="module"></script>
+    <script src="src/js/dashboard.js" type="module"></script>
+    <script src="src/js/diagnostic-test.js" type="module"></script>
+    <script src="src/js/speaking-practice.js" type="module"></script>
+    <script src="src/js/writing-assistant.js" type="module"></script>
+    <script src="src/js/listening-practice.js" type="module"></script>
+    <script src="src/js/reading-comprehension.js" type="module"></script>
+    <script src="src/js/adaptive-quizzes.js" type="module"></script>
+    <script src="src/js/progress-dashboard.js" type="module"></script>
+    <script src="src/js/landing.js"></script>
+</body>
+</html>
+
